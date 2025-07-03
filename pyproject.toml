@@ -13,7 +13,7 @@ maintainers = [
 ]
 description = "R-Tree spatial index for Python GIS"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 keywords = ["gis", "spatial", "index", "r-tree"]
 license = {text = "MIT"}
 classifiers = [
@@ -23,7 +23,6 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -49,7 +48,6 @@ version = {attr = "rtree.__version__"}
 rtree = ["py.typed"]
 
 [tool.cibuildwheel]
-build = "cp39-*"
 build-verbosity = 3
 before-all = "pip install wheel"
 repair-wheel-command = "python scripts/repair_wheel.py -w {dest_dir} {wheel}"
@@ -82,7 +80,7 @@ before-build = [
 ]
 
 [tool.cibuildwheel.windows]
-archs = ["AMD64"]
+archs = ["auto64"]
 before-build = [
     "call {project}\\scripts\\install_libspatialindex.bat",
 ]
