@@ -47,16 +47,6 @@ version = {attr = "rtree.__version__"}
 [tool.setuptools.package-data]
 rtree = ["py.typed"]
 
-[tool.cibuildwheel]
-build-verbosity = 3
-before-all = "pip install wheel"
-repair-wheel-command = "python scripts/repair_wheel.py -w {dest_dir} {wheel}"
-test-requires = "tox"
-test-command = "tox --conf {project} --installpkg {wheel}"
-test-skip = [
-    "*-macosx_arm64",
-]
-
 [tool.cibuildwheel.linux]
 archs = ["auto"]
 before-build = [
